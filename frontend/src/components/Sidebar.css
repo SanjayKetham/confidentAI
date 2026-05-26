@@ -1,0 +1,146 @@
+/* ── Sidebar CSS ─────────────────────────────────────────────── */
+.sidebar {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border);
+  padding: 20px 12px;
+  gap: 8px;
+  overflow: hidden;
+  transition: width 0.3s ease;
+}
+
+/* ── Logo ── */
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 6px 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.logo-icon {
+  min-width: 36px; height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-primary);
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  box-shadow: 0 0 16px rgba(124,58,237,0.35);
+}
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ── Toggle Button ── */
+.sidebar-toggle {
+  position: absolute;
+  right: -12px; top: 64px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all var(--transition-fast);
+}
+.sidebar-toggle:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* ── Upgrade Banner ── */
+.sidebar-upgrade {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--gradient-card);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  margin-bottom: 4px;
+}
+.upgrade-icon {
+  width: 28px; height: 28px; min-width: 28px;
+  border-radius: var(--radius-sm);
+  background: rgba(245,158,11,0.2);
+  color: var(--warning);
+  display: flex; align-items: center; justify-content: center;
+}
+.upgrade-title { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.upgrade-sub   { font-size: 11px; color: var(--text-muted); }
+
+/* ── Navigation ── */
+.sidebar-nav { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 10px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+.nav-item:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+.nav-item.active {
+  background: rgba(124,58,237,0.15);
+  color: var(--primary-light);
+  border: 1px solid rgba(124,58,237,0.25);
+}
+.nav-item.active .nav-icon { color: var(--primary-light); }
+.nav-icon { min-width: 18px; }
+.nav-label { overflow: hidden; text-overflow: ellipsis; }
+
+/* ── Footer ── */
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.user-info {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 6px;
+  overflow: hidden;
+}
+.user-avatar {
+  min-width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: white;
+}
+.user-meta { overflow: hidden; }
+.user-name  { font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.user-email { font-size: 11px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.logout-btn {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 10px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+.logout-btn:hover { background: rgba(239,68,68,0.1); color: var(--danger); border-color: rgba(239,68,68,0.2); }
+
+/* ── Collapsed State ── */
+.sidebar.collapsed .sidebar-logo { justify-content: center; }
+.sidebar.collapsed .nav-item     { justify-content: center; }
+.sidebar.collapsed .logout-btn   { justify-content: center; }

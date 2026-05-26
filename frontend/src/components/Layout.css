@@ -1,0 +1,17 @@
+.app-layout {
+  min-height: 100vh;
+  background: var(--bg-base);
+  position: relative;
+}
+
+.app-main {
+  min-height: 100vh;
+  padding: 0;
+  background: var(--bg-base);
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    margin-left: 0 !important;
+  }
+}
